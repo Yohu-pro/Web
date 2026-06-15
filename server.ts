@@ -28,13 +28,16 @@ if (!getApps().length) {
       initializeApp();
     }
   } else {
-    // Rely on platform default identity which should have access to its own project
-    initializeApp();
-    console.log("ℹ️ Firebase Admin: Initialized with default platform credentials.");
+    // In AI Studio, initializing with the explicit projectId from config ensures 
+    // the identity targets the correct project database.
+    initializeApp({
+      projectId: firebaseConfig.projectId
+    });
+    console.log(`ℹ️ Firebase Admin: Initialized with platform credentials for ${firebaseConfig.projectId}.`);
   }
 }
 
-// Access the specific named database used by AI Studio.
+// Access the specific named database. 
 const db = getFirestore(firebaseConfig.firestoreDatabaseId);
 
 const upload = multer({ 
