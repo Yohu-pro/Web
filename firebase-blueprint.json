@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "CustomData": {
+      "title": "Custom Application Data",
+      "description": "Stores user-editable text and images for the website.",
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "object",
+          "description": "Key-value pairs of editable IDs and their values."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last time the data was updated."
+        }
+      },
+      "required": ["content", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "settings/{docId}": {
+      "schema": "CustomData",
+      "description": "Configuration settings for the site content."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} { allow read, write: if false; }
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null && (request.auth.token.email == 'yohu.vn@gmail.com' || request.auth.token.email_verified == true);
+    }
+    match /authorized_emails/{email} {
+      allow read, write: if request.auth != null && request.auth.token.email == email;
+      allow read, write: if request.auth != null && request.auth.token.email == 'yohu.vn@gmail.com';
+    }
+    match /users/{email}/siteContent {
+      allow read, write: if request.auth != null && 
+        (request.auth.token.email == email || request.auth.token.email == 'yohu.vn@gmail.com');
+    }
+  }
+}

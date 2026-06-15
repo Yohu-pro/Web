@@ -1,0 +1,10 @@
+{
+  "name": "Yohu Việt Nam - Giải pháp quản lý thông minh",
+  "description": "Hệ thống quản lý nội bộ và chatbot AI cho Công ty TNHH Yohu Việt Nam - Nhà phân phối thiết bị vệ sinh.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

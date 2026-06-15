@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .markdown-content {
+    @apply space-y-4;
+  }
+  .markdown-content h1 { @apply text-3xl font-black uppercase mb-4; }
+  .markdown-content h2 { @apply text-2xl font-bold uppercase mb-3; }
+  .markdown-content h3 { @apply text-xl font-bold mb-2; }
+  .markdown-content p { @apply mb-4 leading-relaxed; }
+  .markdown-content ul { @apply list-disc pl-6 mb-4; }
+  .markdown-content ol { @apply list-decimal pl-6 mb-4; }
+  .markdown-content img { @apply rounded-2xl shadow-lg my-6 max-w-full h-auto; }
+  .markdown-content a { @apply text-blue-600 underline hover:text-blue-800; }
+  .markdown-content blockquote { @apply border-l-4 border-slate-200 pl-4 italic text-slate-500; }
+  .markdown-content iframe { @apply rounded-2xl shadow-lg my-6 aspect-video w-full; }
+}
+
